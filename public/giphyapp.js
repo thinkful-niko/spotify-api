@@ -12,6 +12,7 @@ let $clear = $('.clear');
 let $button = $('.random');
 let currentTimeout;
 
+
 let query = {
   text: null,
   offset: 0,
@@ -19,7 +20,21 @@ let query = {
     return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
   },
   fetch(callback) {
-    $.get(this.request())
+
+   $.ajax({
+        url : this.request(),
+        type: 'GET',
+        success : handleData,
+   	fail: failData
+    })
+
+
+	/*
+	$.getJSON(this.request(),
+	 function(result){ console.log(result)}
+		 )
+
+    $.getJSON(this.request())
       .success(data => {
         let results = data.data;
         console.log(data)
@@ -33,9 +48,28 @@ let query = {
       })
       .fail(error => {
         console.log(error);
-      });
+      });*/
+	function handleData(data){
+	 let results = data.data;
+		console.log(data)
+		if (results.length) {
+		  let url = results[0].images.downsized.url;
+		  console.log(results);
+		  callback(url);
+		} else {
+		  callback('');
+		}
+			
+	}
+
+	function failData(error){
+		console.log(error)
+	}
+	 
   }
 }
+
+
 
 function buildImg(src = '//giphy.com/embed/xv3WUrBxWkUPC', classes = 'gif hidden') {
   return `<img src="${src}" class="${classes}" alt="gif" />`;
