@@ -18,10 +18,7 @@
         </div>
         <div id="oauth">
         </div>
-
-  <div id="songs">
-  </div>
-        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        
       </div>
     </div>
 
@@ -36,41 +33,11 @@
         <div class="media-body">
           <dl class="dl-horizontal">
             <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
+          
+
           </dl>
         </div>
       </div>
-  <h2>sup</h2>
-  <p>{{id}}</p>
-{{#each albums.items}}
-    <div class="row">{{this.name}}</div>
-{{/each}}
-  <p>{{albums.limit}}</p>
-
-  <h3>sup</h3>
-<h1>{{ name }}</h1>
-    </script>
-
-    <script>
-
-
-  //var name = "{{ albums }}";
-  //console.log(name);
-    </script>
-
-<script id="songs-template" type="text/x-handlebars-template">
-
-  sdfdsfsd
-  {{#each albums.items}}
-      <div class="row">{{this.name}}</div>
-  {{/each}}
-  <p>yo</p>
-</script>
 
 
     <script id="oauth-template" type="text/x-handlebars-template">

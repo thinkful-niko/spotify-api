@@ -9,6 +9,10 @@
         width: 500px;
       }
 
+#oauth-template{
+  display: none;
+}
+
 body {
     padding: 20px;
 }

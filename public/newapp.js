@@ -18,15 +18,6 @@
 		userProfileTemplate = Handlebars.compile(userProfileSource),
 		userProfilePlaceholder = document.getElementById('user-profile');
 
-	var oauthSource = document.getElementById('oauth-template').innerHTML,
-	    oauthTemplate = Handlebars.compile(oauthSource),
-	    oauthPlaceholder = document.getElementById('oauth');
-
-
-	var songsSource = document.getElementById('songs-template').innerHTML,
-	    songsTemplate = Handlebars.compile(songsSource),
-	    songsPlaceholder = document.getElementById('songs');
-
 
 
 	var params = getHashParams();
@@ -40,10 +31,10 @@
 	} else {
 		if (access_token) {
 			// render oauth info
-			oauthPlaceholder.innerHTML = oauthTemplate({
-				access_token: access_token,
-				refresh_token: refresh_token
-			});
+			// oauthPlaceholder.innerHTML = oauthTemplate({
+			// 	access_token: access_token,
+			// 	refresh_token: refresh_token
+			// });
 
 			console.log("MAKE REQUESTS WITH "+access_token);
 			$.ajax({
@@ -60,26 +51,7 @@
 					$('#loggedin').show();
 				}
 			});
-			$.ajax({
-				url: 'https://api.spotify.com/v1/browse/new-releases',
-				headers: {
-					'Authorization': 'Bearer ' + access_token
-				},
-				success: function(response) {
-
-					console.log(response) 
-					songsPlaceholder.innerHTML = songsTemplate(response);
-
-					$('#login').hide();
-					$('#loggedin').show();
-				}
-			});
-
 			
-
-
-
-
 
 		} else {
 			// render initial screen
@@ -87,20 +59,20 @@
 			$('#loggedin').hide();
 		}
 
-		document.getElementById('obtain-new-token').addEventListener('click', function() {
-			$.ajax({
-				url: '/refresh_token',
-				data: {
-					'refresh_token': refresh_token
-				}
-			}).done(function(data) {
-				access_token = data.access_token;
-				oauthPlaceholder.innerHTML = oauthTemplate({
-					access_token: access_token,
-					refresh_token: refresh_token
-				});
-			});
-		}, false);
+		// document.getElementById('obtain-new-token').addEventListener('click', function() {
+		// 	$.ajax({
+		// 		url: '/refresh_token',
+		// 		data: {
+		// 			'refresh_token': refresh_token
+		// 		}
+// 			}).done(function(data) {
+// 				access_token = data.access_token;
+// 				oauthPlaceholder.innerHTML = oauthTemplate({
+// 					access_token: access_token,
+// 					refresh_token: refresh_token
+// 				});
+// 			});
+// 		}, false);
 	}
 })();
 
