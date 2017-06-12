@@ -89,6 +89,7 @@
 
 	document.getElementById('search-form').addEventListener('submit', function (e) {
 		e.preventDefault();
+		console.log(document.getElementById('query').value)
 		searchAlbums(document.getElementById('query').value);
 	}, false);
 

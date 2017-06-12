@@ -4,7 +4,7 @@
     <title>Example of the Authorization Code flow with Spotify</title>
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
- 
+    <link rel="stylesheet" type="text/css" href="giphystyles.css">
   </head>
 
   <body>
@@ -18,7 +18,7 @@
         </div>
         <div id="oauth">
         </div>
-        
+
       </div>
     </div>
 
@@ -65,7 +65,16 @@
 </script>
 
 
+<div class="input-wrapper empty">
+    <input type="text" class="query" />
+    <div class="loader"></div>
+    <div class="clear"></div>
+</div>
 
+<div class="result">
+</div>
+
+<button class="random">Get Another GIF</button>
 
 
 
@@ -73,6 +82,8 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="newapp.js"></script>
     <script src="searchArtists.js"></script>
+
+    <script src="giphyapp.js"></script>
 
   </body>
 </html>
