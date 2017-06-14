@@ -64,6 +64,7 @@
 
 	results.addEventListener('click', function (e) {
 		var target = e.target;
+		giphyIt(); 
 		if (target !== null && target.classList.contains('cover')) {
 			if (target.classList.contains(playingCssClass)) {
 				audioObject.pause();
