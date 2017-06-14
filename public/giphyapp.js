@@ -191,7 +191,16 @@
 				}
 				fetchTracks(target.getAttribute('data-album-id'), function (data) {
 					console.log(data)
-					audioObject = new Audio(data.tracks.items[0].preview_url);
+					var preview_url;
+					for(var i=0; i<	data.tracks.items.length; i++){		
+						preview_url = data.tracks.items[i].preview_url
+						if (preview_url != null){
+							break;
+						}
+					}
+					console.log(i);
+					
+					audioObject = new Audio(preview_url);
 					audioObject.play();
 					target.classList.add(playingCssClass);
 					audioObject.addEventListener('ended', function () {
@@ -215,7 +224,10 @@
 	}
 
 
-	
+	window.addEventListener("unhandledrejection", function(err, promise) { 
+    // handle error here, for example log   
+    		console.log(err)
+	});
 
 })();
 
