@@ -5,7 +5,7 @@
 	const PUBLIC_KEY = 'dc6zaTOxFJmzC';
 	const BASE_URL = '//api.giphy.com/v1/gifs/';
 	const ENDPOINT = 'search';
-	const LIMIT = 5;
+	const LIMIT = 12;
 	const RATING = 'pg';
 
 	let $queryInput = $('.query');
@@ -18,6 +18,7 @@
 
 	let currentTimeout;
 	
+
 	var templateSource = document.getElementById('giphy-template').innerHTML,
 	    template = Handlebars.compile(templateSource),
 	    resultsPlaceholder = document.getElementById('results'),
