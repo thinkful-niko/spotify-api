@@ -1,10 +1,22 @@
 *{
   box-sizing: border-box;
   text-align: center;
+  background-color: black;
 }
 
 body{
   font-family: "Oswald", sans-serif;
+}
+
+h1{
+  color: pink;
+  margin-top: 80px;
+  font-size: 40px;
+}
+
+.intro-txt{
+  color: white;
+  font-size: 13px;
 }
 
 #login, #loggedin {
@@ -14,6 +26,7 @@ body{
 .search-bar{
   width: 50%;
   margin: 40px;
+  color: pink;
 }
 
 .profilepic{
@@ -37,10 +50,11 @@ body{
 }
 
 .cover {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     display: inline-block;
     background-size: cover;
+    margin: 10px;
 }
 
 /*.cover{
