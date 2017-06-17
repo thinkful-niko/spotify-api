@@ -13,6 +13,7 @@ body{
 
 .search-bar{
   width: 50%;
+  margin: 40px;
 }
 
 .profilepic{
@@ -34,25 +35,26 @@ body{
 #search-form, .form-control {
     margin-bottom: 20px;
 }
-/*.cover {
+
+.cover {
     width: 300px;
     height: 300px;
     display: inline-block;
     background-size: cover;
-}*/
+}
 
-.cover{
+/*.cover{
   display: inline-block;
   width: 33%;
   box-sizing: border-box;
-}
+}*/
 .cover:hover {
     cursor: pointer;
 }
 
 @media (max-width: 700px){
   .cover{
-    width: 100%;
+    width: 85%;
   }
 }
 
