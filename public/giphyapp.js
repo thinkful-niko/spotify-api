@@ -236,6 +236,15 @@
 
 
 
+
+// $(".cover")
+
+
+
+
+
+
+
 	/*
 		function buildImg(src = '//giphy.com/embed/xv3WUrBxWkUPC', classes = 'gif hidden') {
 			return `<img src="${src}" class="${classes}" alt="gif" />`;
