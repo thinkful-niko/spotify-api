@@ -225,7 +225,8 @@
 
 
 	window.addEventListener("unhandledrejection", function(err, promise) { 
-    // handle error here, for example log   
+    // handle error here, for example log  
+    // 		 
     		console.log(err)
 	});
 
