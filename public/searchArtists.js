@@ -17,7 +17,6 @@
 		return hashParams;
 	}
 
-	console.log('yo')
 	var params = getHashParams();
 
 	var access_token = params.access_token,

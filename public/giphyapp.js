@@ -15,9 +15,10 @@
 	let $clear = $('.clear');
 	let $button = $('.random');
 	let $gif = $('.gif'); 
-
+	let oldArtist; 
 	let currentTimeout;
-	
+	let albumQuery; 	
+	let $playing; 
 
 	var templateSource = document.getElementById('giphy-template').innerHTML,
 	    template = Handlebars.compile(templateSource),
@@ -34,7 +35,7 @@
 		},
 		handleData(data){
 				let results = data.data;
-				console.log(data)
+				//console.log(data)
 					
 				if (results.length) {
 					resultsPlaceholder.innerHTML = template(data);
@@ -46,7 +47,7 @@
 		},
 
 		failData(error){
-			console.log(error)
+			//console.log(error)
 		},
 
 
@@ -101,7 +102,9 @@
 					}, 1000);
 				})
 				.then(function(){
-					console.log('now search '+query.text)
+					//console.log('now search '+query.text)
+					oldArtist = $queryInput.val();
+					$('#artistPlaying').text('') 
 					searchAlbums(query.text) 
 					}
 				);
@@ -161,7 +164,8 @@
 			},
 			success: function (response) {
 				//resultsPlaceholder.innerHTML = template(response);
-				console.log(response) 
+				//console.log(response)
+		       		albumQuery = response; 
 				addAlbumIds(response); 
 			}
 		});
@@ -174,14 +178,17 @@
 			},
 
 			success: function (response) {
-				console.log(response)
-			callback(response);
+				//console.log(response)
+				callback(response);
+			},
+			fail:function(err){
+				//console.log(err)
 			}
 		});
 	};
 
 	function playSong(e){
-		console.log(e);
+		//console.log(e);
 		var target = e.target;
 		if (target !== null && target.classList.contains('cover')) {
 			if (target.classList.contains(playingCssClass)) {
@@ -191,7 +198,7 @@
 					audioObject.pause();
 				}
 				fetchTracks(target.getAttribute('data-album-id'), function (data) {
-					console.log(data)
+					////console.log(data)
 					var preview_url;
 					for(var i=0; i<	data.tracks.items.length; i++){		
 						preview_url = data.tracks.items[i].preview_url
@@ -201,7 +208,8 @@
 					}
 					console.log(i);
 					
-					audioObject = new Audio(preview_url);
+					
+					audioObject = new Audio(data.tracks.items[0].preview_url);
 					audioObject.play();
 					target.classList.add(playingCssClass);
 					audioObject.addEventListener('ended', function () {
@@ -216,9 +224,9 @@
 	}
 
 	function addAlbumIds(response){
-		console.log($('.gif'))
+		//console.log($('.gif'))
 		$('.gif').each(function(i){
-			console.log(this,i) 
+			//console.log(this,i) 
 			this.setAttribute('data-album-id',response.albums.items[i].id)
 		})
 
@@ -226,11 +234,65 @@
 
 
 	window.addEventListener("unhandledrejection", function(err, promise) { 
-    // handle error here, for example log   
-    		console.log(err)
+		// handle error here, for example log   
+		$playing = $('.cover.gif.playing');
+		$playing.click();
+		searchRelatedArtists(albumQuery.albums.items[0].artists[0].id)
+	       	
 	});
 
+
+
+	//RELATED ARTISTS
+	function searchRelatedArtists(id) {
+		var url = 'https://api.spotify.com/v1/artists/'+id+'/related-artists'
+			
+		$.ajax({
+			url: url,
+			headers: {
+				'Authorization': 'Bearer ' + access_token
+			},
+
+			success: function (relatedArtists) {
+				let newArtist = relatedArtists.artists[Math.floor(Math.random() * 3) + 1 ].name;
+				let str = `Spotify doesn't have any previews for ${oldArtist}, so you're now listening to ${newArtist}`; 
+				oldArtist = newArtist; 
+				
+				$('#artistPlaying').text(str)
+ 				console.log(newArtist)	
+				searchAlbums(newArtist)
+				$playing.click();
+			},
+			error:function(err){
+				//console.log(err)
+			}
+		});
+	};
+
+
+	//THESAURUS API 
+	var baseUrl = "http://api.wordnik.com/v4/word.json/";
+	var apiKey = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"; //demo key from developer.wordnik.com
+	function getSynonyms (theWord, callback) {
+		var url = baseUrl + theWord + "/relatedWords?useCanonical=true&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=" + apiKey;
+		var jxhr = $.ajax ({ 
+			url: url,
+			dataType: "text" , 
+			timeout: 30000,
+			success: function (response) {
+				//console.log(JSON.parse(response[0].words)) 
+			},
+			error: function(status){					
+				//console.log ("getSynonyms: url == " + url + ", error == " + JSON.stringify (status, undefined, 4));
+			}
+		    
+			}) 
+	}
+
+
 })();
+
+
 
 
 

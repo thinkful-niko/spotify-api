@@ -274,3 +274,8 @@ p {
     display: block;
 
   }
+}
+
+#artistPlaying{
+	color:white;
+}
