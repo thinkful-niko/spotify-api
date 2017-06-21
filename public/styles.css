@@ -8,9 +8,21 @@ body{
   font-family: "Oswald", sans-serif;
 }
 
+img.responsive {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.responsive {
+padding: 0 6px; 
+float:left; 
+width: 24.99999%; }
+
 @media only screen and (max-width: 700px){
   .responsive{
     width: 49.99999%;
+    border: 2px solid yellow;
     margin: 6px 0;
   }
 }
@@ -62,13 +74,13 @@ h1{
     margin-bottom: 20px;
 }
 
-.cover {
+/*.cover {
     width: 250px;
     height: 250px;
     display: inline-block;
     background-size: cover;
     margin: 10px;
-}
+}*/
 
 /*.cover{
   display: inline-block;
@@ -89,11 +101,11 @@ h1{
     left: 0;
 }*/
 
-@media (max-width: 700px){
+/*@media (max-width: 700px){
   .cover{
     width: 85%;
   }
-}
+}*/
 
 .results{
   border: 1px solid green;
