@@ -8,6 +8,19 @@ body{
   font-family: "Oswald", sans-serif;
 }
 
+@media only screen and (max-width: 700px){
+  .responsive{
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .responsive {
+        width: 100%;
+    }
+}
+
 h1{
   color: pink;
   margin-top: 80px;
@@ -65,6 +78,7 @@ h1{
 .cover:hover {
     cursor: pointer;
     background: rgba(100%,0,0,0.5);
+    border: 2px solid white;
 }
 
 /*.cover:click{
@@ -152,7 +166,7 @@ img {
 nav {
 
   float: right;
-  padding: 20px;  
+  padding: 10px;  
   
 }
 
@@ -188,7 +202,7 @@ li {
 
 .current {
 
-  color: #2262AD;
+  color: grey;
 
 }
 
