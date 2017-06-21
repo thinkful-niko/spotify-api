@@ -73,7 +73,9 @@
 
 <script id="giphy-template" type="text/x-handlebars-template">
     {{#each data}}
-	<img src="{{images.downsized_still.url}}" data-gif="{{images.downsized.url}}" class="cover gif responsive" alt="gif">
+	<div class="responsive">
+		<img src="{{images.downsized_still.url}}" data-gif="{{images.downsized.url}}" class="cover gif" alt="gif">
+	</div>
     {{/each}}
 </script>
 
