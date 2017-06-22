@@ -35,7 +35,7 @@
 		},
 		handleData(data){
 				let results = data.data;
-				//console.log(data)
+				console.log(data)
 					
 				if (results.length) {
 					resultsPlaceholder.innerHTML = template(data);
@@ -289,7 +289,13 @@
 			}) 
 	}
 
+Handlebars.registerHelper('toUpperCase', function(str) { 
+	if(str.length==0){
+		return "untitled"
+	}
+	return str.toUpperCase().split('-').slice(0,-1).join(' '); 
 
+});
 })();
 
 
