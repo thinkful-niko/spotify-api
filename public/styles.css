@@ -71,12 +71,12 @@ body{
   font-family: 'Quicksand', sans-serif;*/
 }
 
-#search-icon{
+/*#search-icon{
   color: #2B2B35;
   font-size: 24px;
-  /*animation: rotate 3s infinite;*/
+  animation: rotate 3s infinite;
   background: none;
-}
+}*/
 
 /*@keyframes rotate{
   0%{
@@ -140,6 +140,18 @@ div.desc {
   margin: 40px;
   background-color: white;
   color: #2B2B35;
+}
+
+button {
+  background: none;
+  background-image: url(magnifying-glass copy.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  text-indent: -9999px;
+  width: 24px;
+  border: 1px white;
+  border-radius: 2px;
 }
 
 .profilepic{
