@@ -1,11 +1,86 @@
 *{
   box-sizing: border-box;
   text-align: center;
-  background-color: black;
+/*  background-color: #002D56;
+*/ 
+  background-color: #2B2B35; 
+  margin: 0;
+  padding: 0;
+  transition: all .5s;
+}
+
+.top-section{
+  background-color: #019AAA;
+}
+
+/*header, footer{
+  width: 100%;
+  height: 50px;
+  background-color: #019AAA;
+}
+*/
+header{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+}
+
+/*header:hover .slider{
+  width: 100%; 
+}
+
+.slider{
+  height: 5px;
+  background-color: #59a8b1;
+  width: 0%;
+}
+
+.slider.animate{
+  width: 100%;
+}
+
+.slider:hover{
+  width: 100%;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  border-top: 3px solid pink;
+}
+*/
+
+.logo{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 body{
-  font-family: "Oswald", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /*font-family: 'Fjalla One', sans-serif;
+  font-family: 'Anton', sans-serif;
+  font-family: 'Quicksand', sans-serif;*/
+}
+
+#search-icon{
+  color: white;
+  font-size: 24px;
+  animation: rotate 3s infinite;
+  background: none;
+}
+
+@keyframes rotate{
+  0%{
+    transform: rotate(360deg);
+  }
+  50%{
+    color: red;
+  }
+  100%{
+    transform: rotate(720deg);
+  }
 }
 
 div.desc {
@@ -44,12 +119,6 @@ div.desc {
     }
 }
 
-h1{
-  color: pink;
-  margin-top: 80px;
-  font-size: 40px;
-}
-
 .intro-txt{
   color: white;
   font-size: 13px;
@@ -62,7 +131,8 @@ h1{
 .search-bar{
   width: 50%;
   margin: 40px;
-  color: pink;
+  background-color: white;
+  color: #2B2B35;
 }
 
 .profilepic{
@@ -143,21 +213,6 @@ h1{
 /*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}*/
 
 /*MAIN*/
-header { 
-  font-size: 1.05em;
-  line-height: 1.25em;
-  font-family: Helvetica Neue, Helvetica, Arial;
-  /*background: #f9f9f9;*/
-  color: white;
-  /*background: #fff;*/
-  width: 100%;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  /*border-bottom: 4px solid #4C9CF1;*/
-  z-index: 100;
-}
 
 a {
 
@@ -190,42 +245,7 @@ img {
 
 }*/
 
-nav {
 
-  float: right;
-  padding: 10px;  
-  
-}
-
-#menu-icon {
-
-  display: hidden;
-  width: 40px;
-  height: 40px;
-  background: #4C8FEC url(../img/menu-icon.png) center;
-
-}
-
-a:hover#menu-icon {
-
-  background-color: #444;
-  border-radius: 4px 4px 0 0;
-
-}
-
-ul {
-
-  list-style: none;
-
-}
-
-li {
-
-  display: inline-block;
-  float: left;
-  padding: 10px
-
-}
 
 .current {
 
@@ -259,49 +279,7 @@ p {
 }*/
 
 /*MEDIA QUERY*/
-@media only screen and (max-width : 640px) {
 
-  header {
-
-    position: absolute;
-
-  }
-
-  #menu-icon {
-
-    display:inline-block;
-
-  }
-
-  nav ul, nav:active ul { 
-
-    display: none;
-    position: absolute;
-    padding: 20px;
-    background: #fff;
-    border: 5px solid #444;
-    right: 20px;
-    top: 60px;
-    width: 50%;
-    border-radius: 4px 0 4px 4px;
-
-  }
-
-  nav li {
-
-    text-align: center;
-    width: 100%;
-    padding: 10px 0;
-    margin: 0;
-
-  }
-
-  nav:hover ul {
-
-    display: block;
-
-  }
-}
 
 #artistPlaying{
 	color:white;
