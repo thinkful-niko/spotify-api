@@ -85,7 +85,22 @@
 
 				$inputWrapper.addClass('active').removeClass('empty');
 
-				query.fetch(url => {
+				search(query)
+
+			} else {
+				$inputWrapper.removeClass('active').addClass('empty');
+				$button.removeClass('active');
+			}
+		}, 5000);
+
+
+	});
+
+	function search(query){
+
+		console.log('searching')
+
+		query.fetch(url => {
 					if (url.length) {
 						//$resultWrapper.html(buildImg(url));
 
@@ -109,24 +124,21 @@
 					}
 				);
 
-				;
-			} else {
-				$inputWrapper.removeClass('active').addClass('empty');
-				$button.removeClass('active');
-			}
-		}, 1000);
-
-
-	});
-
-
+	}
 
 	$('body').on('click', '.gif', function (e) { //Plays GIF
 		this.src = this.getAttribute('data-gif')
 		playSong(e);
 	});
 
+	$('.button').on('click', function (e){
+		query.text = $queryInput.val();
+		query.offset = Math.floor(Math.random() * 25)
 
+		search(query)
+
+		console.log("hi")
+	})
 
 
 	/*SPOTIFY*/
