@@ -145,8 +145,8 @@ div.desc {
 
 .search-bar{
   width: 50%;
-  /*margin: 40px;
-*/  
+  margin: 40px;
+  
   background-color: white;
   color: #2B2B35;
 }
