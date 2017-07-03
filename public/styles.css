@@ -9,14 +9,13 @@
 }
 
 .top-section, .logo-container{ 
-  /*background: linear-gradient(#0165AA, #019AAA);*/
-  background-color: #019AAA;
+ /* background-color: #019AAA;*/
 }
 
-/*.top-section{
+.top-section{
   background: linear-gradient(#0165AA, #019AAA);
-  border: 2px solid #AFA602;
-}*/
+  /*border: 2px solid #AFA602;*/
+}
 
 .logo-container{
   width: 100%;
@@ -143,9 +142,6 @@ div.desc {
   font-size: 13px;
 }
 
-#login, #loggedin {
-  display: none;
-}
 
 .search-bar{
   width: 50%;
@@ -204,8 +200,8 @@ div.desc {
 }*/
 .cover:hover {
     cursor: pointer;
-    background: rgba(100%,0,0,0.5);
     border: 2px solid white;
+    filter: brightness(1.5);
 }
 
 .desc:hover{

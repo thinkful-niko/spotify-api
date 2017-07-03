@@ -8,74 +8,76 @@
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<div class="logo-container">
-	<img src="spotgif_logo_wt.png" alt="spotgif logo" class="logo top-section">
-<!-- <h1 class="title top-section">SpotGif</h1> -->
-</div>
-<div class="intro-txt top-section">Your tunes and gifs all in one place</div>
-
-
-<header class="top-section">
+<header>
 	<div class="slider"></div>
+	<div class="container">
+		<div id="login">
+			<a href="/login">Log in with Spotify</a>
+		</div>
+		<div id="loggedin">
+			<div id="user-profile">
+			</div>
+			<div id="oauth">
+			</div>
+
+		</div>
+	</div>
 </header>
 <body>
+	<div class= "top-section">
+		<div class="logo-container">
+			<img src="spotgif_logo_wt.png" alt="spotgif logo" class="logo">
+			<!-- <h1 class="title top-section">SpotGif</h1> -->
+		</div>
+		<div class="intro-txt">Your tunes and gifs all in one place</div>
 
 
-<div class="input-wrapper empty top-section">
-	<!-- <div id='search-icon'>
-	&#9906;
+
+
+		<div class="input-wrapper empty">
+		<!-- <div id='search-icon'>
+		&#9906;
 	</div> -->
-	<input type="search" placeholder="Search" class="query search-bar top-section fa fa-search"/>
-	 <a class="button">
-       
-        <span >
-        <i class="fa fa-search"></i>  
-        </span>
-    </a>
-</div>
+		<input type="search" placeholder="Search" class="query search-bar fa fa-search"/>
+		<a class="button">
 
-<div class="container">
-	<div id="login">
-		<a href="/login">Log in with Spotify</a>
-	</div>
-	<div id="loggedin">
-		<div id="user-profile">
+			<span >
+				<i class="fa fa-search"></i>  
+			</span>
+		</a>
 		</div>
-		<div id="oauth">
-		</div>
-
 	</div>
-</div>
-
-<script id="user-profile-template" type="text/x-handlebars-template">
-
-	  <img class="profilepic" src="{{images.0.url}}" />
-	    <div id="username">{{display_name}}</div>
-  </script>
 
 
-  <script id="oauth-template" type="text/x-handlebars-template">
-      <h2>oAuth info</h2>
-      <dl class="dl-horizontal">
-	<dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
-	<dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}></dd>
-      </dl>
-</script>
+	<script id="user-profile-template" type="text/x-handlebars-template">
+
+		<img class="profilepic" src="{{images.0.url}}" />
+		<div id="username">{{display_name}}</div>
+	</script>
 
 
-<div id="artistPlaying"></div>
+	<script id="oauth-template" type="text/x-handlebars-template">
+		<h2>oAuth info</h2>
+		<dl class="dl-horizontal">
+			<dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+			<dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}></dd>
+		</dl>
+	</script>
 
-<div id="results"></div>
 
-<script id="giphy-template" type="text/x-handlebars-template">
-    {{#each data}}
-	<div class="responsive">
-		<img src="{{images.downsized_still.url}}" data-gif="{{images.downsized.url}}" class="cover gif" alt="gif">
-		<div class="desc">
-		{{toUpperCase slug}}</div>
-	</div>
-    {{/each}}
-</script>
+	<div id="artistPlaying"></div>
+
+	<div id="results"></div>
+
+	<script id="giphy-template" type="text/x-handlebars-template">
+		{{#each data}}
+		<div class="responsive">
+			<img src="{{images.downsized_still.url}}" data-gif="{{images.downsized.url}}" class="cover gif" alt="gif">
+			<div class="desc">
+				{{toUpperCase slug}}</div>
+			</div>
+			{{/each}}
+		</script>
 
 
 </body>
