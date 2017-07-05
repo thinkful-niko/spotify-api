@@ -66,7 +66,6 @@
 
 
 
-
 	$queryInput.on('keyup', e => {
 		let key = e.which || e.keyCode;
 		query.text = $queryInput.val();
@@ -81,6 +80,8 @@
 			currentTimeout = null;
 			$('.gif').addClass('hidden');
 
+			$('.top-section, .search-bar').removeClass("full-height")
+
 			if (query.text && query.text.length) {
 
 				$inputWrapper.addClass('active').removeClass('empty');
@@ -91,7 +92,7 @@
 				$inputWrapper.removeClass('active').addClass('empty');
 				$button.removeClass('active');
 			}
-		}, 5000);
+		}, 1000);
 
 
 	});
