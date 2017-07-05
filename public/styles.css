@@ -8,6 +8,13 @@
   transition: all .5s;
 }
 
+header{
+  margin: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #AFA602;
+}
+
 .top-section, .logo-container{ 
  /* background-color: #019AAA;*/
 }
@@ -15,13 +22,14 @@
 .top-section{
   background: linear-gradient(#0165AA, #019AAA);
   /*border: 2px solid #AFA602;*/
+  border-bottom: 2px solid #AFA602;
 }
 
 .logo-container{
   width: 100%;
   display: inline-block;
   text-align: center;
-  margin-top: 40px
+  margin-top: 60px
 }
 
 .logo-container img{
