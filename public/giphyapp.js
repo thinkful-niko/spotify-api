@@ -31,6 +31,7 @@
 		text: null,
 		offset: 0,
 		request() {
+			console.log(`${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`)
 			return `${BASE_URL}${ENDPOINT}?q=${this.text}&limit=${LIMIT}&rating=${RATING}&offset=${this.offset}&api_key=${PUBLIC_KEY}`;
 		},
 		handleData(data){
@@ -142,7 +143,21 @@
 	})
 
 
+
+
+
+
+
+
+
+
+
 	/*SPOTIFY*/
+
+
+
+
+
 
 	function getHashParams() {
 		var hashParams = {};
@@ -177,7 +192,7 @@
 			},
 			success: function (response) {
 				//resultsPlaceholder.innerHTML = template(response);
-				//console.log(response)
+				console.log(response)
 		       		albumQuery = response; 
 				addAlbumIds(response); 
 			}
@@ -191,7 +206,7 @@
 			},
 
 			success: function (response) {
-				//console.log(response)
+				console.log(response)
 				callback(response);
 			},
 			fail:function(err){
@@ -283,24 +298,27 @@
 	};
 
 
-	//THESAURUS API 
-	var baseUrl = "http://api.wordnik.com/v4/word.json/";
-	var apiKey = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"; //demo key from developer.wordnik.com
-	function getSynonyms (theWord, callback) {
-		var url = baseUrl + theWord + "/relatedWords?useCanonical=true&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=" + apiKey;
-		var jxhr = $.ajax ({ 
-			url: url,
-			dataType: "text" , 
-			timeout: 30000,
-			success: function (response) {
-				//console.log(JSON.parse(response[0].words)) 
-			},
-			error: function(status){					
-				//console.log ("getSynonyms: url == " + url + ", error == " + JSON.stringify (status, undefined, 4));
-			}
+
+
+
+// 	//THESAURUS API 
+// 	var baseUrl = "http://api.wordnik.com/v4/word.json/";
+// 	var apiKey = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"; //demo key from developer.wordnik.com
+// 	function getSynonyms (theWord, callback) {
+// 		var url = baseUrl + theWord + "/relatedWords?useCanonical=true&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=" + apiKey;
+// 		var jxhr = $.ajax ({ 
+// 			url: url,
+// 			dataType: "text" , 
+// 			timeout: 30000,
+// 			success: function (response) {
+// 				//console.log(JSON.parse(response[0].words)) 
+// 			},
+// 			error: function(status){					
+// 				//console.log ("getSynonyms: url == " + url + ", error == " + JSON.stringify (status, undefined, 4));
+// 			}
 		    
-			}) 
-	}
+// 			}) 
+// 	}
 
 Handlebars.registerHelper('toUpperCase', function(str) { 
 	if(str.length==0){
@@ -310,62 +328,6 @@ Handlebars.registerHelper('toUpperCase', function(str) {
 
 });
 })();
-
-
-
-
-
-
-
-
-// $(".cover")
-
-
-
-
-
-
-
-	/*
-		function buildImg(src = '//giphy.com/embed/xv3WUrBxWkUPC', classes = 'gif hidden') {
-			return `<img src="${src}" class="${classes}" alt="gif" />`;
-		}
-
-	$clear.on('click', e => {
-		$queryInput.val('');
-		$inputWrapper.removeClass('active').addClass('empty');
-		$('.gif').addClass('hidden');
-		$loader.removeClass('done');
-		$button.removeClass('active');
-	});
-
-	$button.on('click', e => {
-		query.offset = Math.floor(Math.random() * 25);
-
-		query.fetch(url => {
-			if (url.length) {
-				$resultWrapper.html(buildImg(url));
-
-				$button.addClass('active');
-			} else {
-				$resultWrapper.html(`<p class="no-results hidden">No Results found for <strong>${query.text}</strong></p>`);
-
-				$button.removeClass('active');
-			}
-
-			$loader.addClass('done');
-			currentTimeout = setTimeout(() => {
-				$('.hidden').toggleClass('hidden');
-			}, 1000);
-		});
-	});*/
-
-
-
-
-
-
-
 
 
 

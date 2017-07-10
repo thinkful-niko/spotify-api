@@ -228,6 +228,8 @@ div.desc {
     filter: brightness(1.5);
 }
 
+
+
 .desc:hover{
   color: grey;
 }
